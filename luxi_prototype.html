@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxi - Gestion des compétences</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">✦</span> Luxi
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active">Tableau de bord</a>
+                <a href="#matrix">Matrice de compétences</a>
+                <a href="#pathways">Parcours</a>
+                <a href="#teams">Équipes</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="welcome-section">
+            <h1>Bienvenue sur Luxi</h1>
+            <p>La solution intelligente pour gérer les compétences de vos collaborateurs et optimiser leur évolution professionnelle.</p>
+            <div class="search-container">
+                <input type="text" placeholder="Rechercher un collaborateur, une compétence..." class="search-input">
+                <button class="btn search-btn">Rechercher</button>
+            </div>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>Collaborateurs</h3>
+                    <div class="stat-value">58</div>
+                    <p>collaborateurs actifs</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Compétences</h3>
+                    <div class="stat-value">24</div>
+                    <p>compétences référencées</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Parcours</h3>
+                    <div class="stat-value">12</div>
+                    <p>parcours en cours</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="feature-cards">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Matrice de compétences</h3>
+                <p class="feature-description">Visualisez et gérez les compétences techniques et transversales de vos collaborateurs avec une notation de 1 à 4.</p>
+                <a href="#matrix" class="btn">Accéder à la matrice</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔄</div>
+                <h3 class="feature-title">Parcours ReSkills</h3>
+                <p class="feature-description">Créez des parcours pour vos collaborateurs souhaitant acquérir des compétences totalement nouvelles pour un poste visé.</p>
+                <a href="#reskill" class="btn btn-outline">Voir les parcours ReSkills</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3 class="feature-title">Parcours UpSkills</h3>
+                <p class="feature-description">Améliorez les compétences existantes mais insuffisantes de vos collaborateurs pour les faire évoluer vers leur poste cible.</p>
+                <a href="#upskill" class="btn btn-outline">Voir les parcours UpSkills</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Rapports & Analytics</h3>
+                <p class="feature-description">Suivez l'évolution des compétences de vos équipes et identifiez les besoins de formation avec des tableaux de bord interactifs.</p>
+                <a href="#" class="btn btn-outline">Voir les rapports</a>
+            </div>
+        </section>
+        
+        <section id="matrix" class="skill-matrix">
+            <h2>Matrice de compétences</h2>
+            <p>Visualisez et gérez les compétences de tous vos collaborateurs.</p>
+            
+            <div class="filters">
+                <button class="filter active">Tous</button>
+                <button class="filter">Tech</button>
+                <button class="filter">Design</button>
+                <button class="filter">Management</button>
+                <button class="filter">Marketing</button>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Collaborateur</th>
+                            <th>JavaScript</th>
+                            <th>HTML/CSS</th>
+                            <th>React</th>
+                            <th>Node.js</th>
+                            <th>Travail d'équipe</th>
+                            <th>Communication</th>
+                            <th>Gestion de projet</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="employee-profile">
+                                    <div class="profile-avatar">AK</div>
+                                    <div>
+                                        <div>Amina Keller</div>
+                                        <small>Développeuse Front-end</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>3</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                    </div>
+                                    <span>4</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>2</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>1</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>3</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>3</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>2</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="employee-profile">
+                                    <div class="profile-avatar">TL</div>
+                                    <div>
+                                        <div>Thomas Leroux</div>
+                                        <small>Développeur Full-stack</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                    </div>
+                                    <span>4</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>2</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>3</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                    </div>
+                                    <span>4</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>2</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>3</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>1</span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="employee-profile">
+                                    <div class="profile-avatar">MP</div>
+                                    <div>
+                                        <div>Marie Petit</div>
+                                        <small>UX Designer</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>1</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>3</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>0</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>0</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                    </div>
+                                    <span>4</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                    </div>
+                                    <span>4</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="skill-level">
+                                    <div class="skill-indicator">
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot filled"></div>
+                                        <div class="skill-dot"></div>
+                                        <div class="skill-dot"></div>
+                                    </div>
+                                    <span>2</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <section id="pathways">
+            <h2>Parcours de développement</h2>
+            <p>Suivez l'évolution de vos collaborateurs à travers leurs parcours personnalisés.</p>
+            <div class="actions">
+                <button id="add-pathway-btn" class="btn">+ Créer un nouveau parcours</button>
+            </div>
+            
+            <div id="reskill" class="pathway-card">
+                <div class="pathway-header">
+                    <div>
+                        <h3>Parcours ReSkill - Front-end Developer</h3>
+                        <p>Marie Petit • UX Designer → Front-end Developer</p>
+                    </div>
+                    <span class="pathway-type reskill">ReSkill</span>
+                </div>
+                
+                <div class="pathway-skills">
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span>JavaScript</span>
+                            <span>1/3</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 33%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span>React</span>
+                            <span>0/3</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span>HTML/CSS</span>
+                            <span>3/3</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p><strong>Progression globale:</strong> 33% (4/12)</p>
+                <p><strong>Échéance:</strong> Décembre 2025</p>
+                <p><strong>Formation en cours:</strong> JavaScript Foundations</p>
+            </div>
+            
+            <div id="upskill" class="pathway-card">
+                <div class="pathway-header">
+                    <div>
+                        <h3>Parcours UpSkill - Lead Developer</h3>
+                        <p>Thomas Leroux • Full-stack Developer → Lead Developer</p>
+                    </div>
+                    <span class="pathway-type upskill">UpSkill</span>
+                </div>
+                
+                <div class="pathway-skills">
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span>Gestion de projet</span>
+                            <span>1/3</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 33%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span>Travail d'équipe</span>
+                            <span>2/4</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="progress-header">
+                            <span>HTML/CSS</span>
+                            <span>2/3</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 66%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p><strong>Progression globale:</strong> 50% (5/10)</p>
+                <p><strong>Échéance:</strong> Septembre 2025</p>
+                <p><strong>Formation en cours:</strong> Team Leadership</p>
+            </div>
+        </section>
+        
+        <section id="teams">
+            <h2>Équipes</h2>
+            <p>Gérez vos équipes et ajoutez de nouveaux collaborateurs.</p>
+            <div class="actions">
+                <button id="add-collaborator-btn" class="btn">+ Ajouter un collaborateur</button>
+            </div>
+            <div class="team-list">
+                <div class="team-member">
+                    <div class="employee-profile">
+                        <div class="profile-avatar">AK</div>
+                        <div>
+                            <div>Amina Keller</div>
+                            <small>Développeuse Front-end</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="employee-profile">
+                        <div class="profile-avatar">TL</div>
+                        <div>
+                            <div>Thomas Leroux</div>
+                            <small>Développeur Full-stack</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="employee-profile">
+                        <div class="profile-avatar">MP</div>
+                        <div>
+                            <div>Marie Petit</div>
+                            <small>UX Designer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo">
+                    <span class="logo-icon">✦</span> Luxi
+                </div>
+                <p>La solution intelligente pour gérer les compétences et parcours de vos équipes.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#">Tableau de bord</a></li>
+                    <li><a href="#matrix">Matrice de compétences</a></li>
+                    <li><a href="#pathways">Parcours</a></li>
+                    <li><a href="#teams">Équipes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Fonctionnalités</h4>
+                <ul>
+                    <li><a href="#matrix">Matrice de compétences</a></li>
+                    <li><a href="#reskill">Parcours ReSkills</a></li>
+                    <li><a href="#upskill">Parcours UpSkills</a></li>
+                    <li><a href="#">Rapports et analyses</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Ressources</h4>
+                <ul>
+                    <li><a href="#">Guide d'utilisation</a></li>
+                    <li><a href="#">Tutoriels</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Luxi - Gestion intelligente des compétences</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
