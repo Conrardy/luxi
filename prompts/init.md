@@ -23,5 +23,5 @@ Formulaire de création de collaborateur - Interface pour ajouter de nouveaux co
 Pied de page complet - Navigation et liens utiles
 Nouvelle section "Rapports & Analytics" - Pour le suivi des performances
 Nouvelle section "AI conseiller" - Pour interagir avec un conseiller virtuel AI
-
+Nouvelle section espace collaborateur - Pour que les collaborateurs puissent voir leurs compétences et parcours et faire des demandes de formation
 ```

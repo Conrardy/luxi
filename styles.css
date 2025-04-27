@@ -207,6 +207,10 @@
         }
 
         /* Styles pour la page matrice de compétences */
+        .actions .btn {
+            margin-left: 10px;
+        }
+
         .skill-matrix {
             background-color: white;
             border-radius: 12px;

@@ -39,6 +39,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Ajout du script pour exporter la matrice en Excel
+    document
+      .getElementById("export-excel-btn")
+      .addEventListener("click", function () {
+        const table = document.querySelector(".table-container table");
+        const rows = Array.from(table.rows);
+        let csvContent = "";
+
+        rows.forEach((row) => {
+          const cells = Array.from(row.cells);
+          const rowContent = cells
+            .map((cell) => `"${cell.innerText}"`)
+            .join(",");
+          csvContent += rowContent + "\n";
+        });
+
+        const blob = new Blob([csvContent], {
+          type: "text/csv;charset=utf-8;",
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", "matrice_competences.csv");
+        link.style.display = "none";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
   // Ajouter des fonctionnalités interactives pour la démonstration
   const skillDots = document.querySelectorAll(".skill-dot");
   skillDots.forEach((dot) => {
