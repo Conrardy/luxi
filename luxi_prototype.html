@@ -25,6 +25,37 @@
     </header>
     
     <main>
+        <div id="role-switcher">
+            <label for="role-select">Se connecter en tant que :</label>
+            <select id="role-select">
+                <option value="Admin">Admin</option>
+                <option value="Manager">Manager</option>
+                <option value="Collaborateur">Collaborateur</option>
+            </select>
+        </div>
+
+        <section id="spaces">
+            <section class="admin-only">
+                <h2>Administration</h2>
+                <p>Accès réservé aux administrateurs pour gérer les paramètres de Luxi.</p>
+                <button class="btn">Gérer les utilisateurs</button>
+                <button class="btn">Configurer les paramètres</button>
+            </section>
+
+            <section class="manager-only">
+                <h2>Gestion des parcours</h2>
+                <p>Accès réservé aux managers pour créer et suivre les parcours des collaborateurs.</p>
+                <button class="btn">Créer un parcours</button>
+                <button class="btn">Suivre les parcours</button>
+            </section>
+
+            <section class="collaborator-only">
+                <h2>Espace Collaborateur</h2>
+                <p>Accès réservé aux collaborateurs pour suivre leur progression et faire des demandes.</p>
+                <button class="btn">Voir mon parcours</button>
+                <button class="btn">Faire une demande</button>
+            </section>
+        </section>
         <section class="welcome-section">
             <h1>Bienvenue sur Luxi</h1>
             <p>La solution intelligente pour gérer les compétences de vos collaborateurs et optimiser leur évolution professionnelle.</p>
@@ -516,6 +547,7 @@
                 </div>
             </div>
         </section>
+        
     </main>
     
     <footer>

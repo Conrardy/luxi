@@ -1,4 +1,57 @@
-document.addEventListener('DOMContentLoaded', function() {
+// Simulated roles and users
+const roles = {
+  ADMIN: "Admin",
+  MANAGER: "Manager",
+  COLLABORATOR: "Collaborateur",
+};
+
+const users = [
+  { id: 1, name: "Alice", role: roles.ADMIN },
+  { id: 2, name: "Bob", role: roles.MANAGER },
+  { id: 3, name: "Charlie", role: roles.COLLABORATOR },
+];
+
+// Simulate current logged-in user
+let currentUser = users[0]; // Default to the first user (Admin)
+
+// Function to update UI based on role
+function updateUIBasedOnRole() {
+  const adminElements = document.querySelectorAll(".admin-only");
+  const managerElements = document.querySelectorAll(".manager-only");
+  const collaboratorElements = document.querySelectorAll(".collaborator-only");
+
+  // Hide all role-specific elements by default
+  adminElements.forEach((el) => (el.style.display = "none"));
+  managerElements.forEach((el) => (el.style.display = "none"));
+  collaboratorElements.forEach((el) => (el.style.display = "none"));
+
+  // Show elements based on the current user's role
+  if (currentUser.role === roles.ADMIN) {
+    adminElements.forEach((el) => (el.style.display = "block"));
+  } else if (currentUser.role === roles.MANAGER) {
+    managerElements.forEach((el) => (el.style.display = "block"));
+  } else if (currentUser.role === roles.COLLABORATOR) {
+    collaboratorElements.forEach((el) => (el.style.display = "block"));
+  }
+}
+
+// Function to switch user (for simulation purposes)
+function switchUser(userId) {
+  currentUser = users.find((user) => user.id === userId);
+  updateUIBasedOnRole();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  updateUIBasedOnRole();
+
+  // Example: Add event listeners for user switching (if needed)
+  document.querySelectorAll(".user-switch").forEach((button) => {
+    button.addEventListener("click", () => {
+      const userId = parseInt(button.dataset.userId, 10);
+      switchUser(userId);
+    });
+  });
+
   // Navigation active state
   const navLinks = document.querySelectorAll(".nav-links a");
   navLinks.forEach((link) => {
@@ -40,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   if (window.location.pathname.includes("luxi_prototype.html")) {
-  // Ajout du script pour exporter la matrice en Excel
+    // Ajout du script pour exporter la matrice en Excel
     document
       .getElementById("export-excel-btn")
       .addEventListener("click", function () {
@@ -68,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.click();
         document.body.removeChild(link);
       });
-    }
+  }
   // Ajouter des fonctionnalités interactives pour la démonstration
   const skillDots = document.querySelectorAll(".skill-dot");
   skillDots.forEach((dot) => {
@@ -391,7 +444,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Ajouter les données d'Upskill et Reskill
-    const upskillReskillCount = document.getElementById("upskill-reskill-count");
+    const upskillReskillCount = document.getElementById(
+      "upskill-reskill-count"
+    );
     upskillReskillCount.textContent = `Upskill: ${upskillReskillData.upskill}, Reskill: ${upskillReskillData.reskill}`;
   }
   // Add interactivity for AI chat page
@@ -420,4 +475,34 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Add interactivity for role switcher
+  const roleSwitcher = document.getElementById("role-select");
+  const adminSection = document.querySelector(".admin-only");
+  const managerSection = document.querySelector(".manager-only");
+  const collaboratorSection = document.querySelector(".collaborator-only");
+
+  function updateRoleView() {
+    const selectedRole = roleSwitcher.value;
+
+    // Hide all sections by default
+    adminSection.style.display = "none";
+    managerSection.style.display = "none";
+    collaboratorSection.style.display = "none";
+
+    // Show the section corresponding to the selected role
+    if (selectedRole === "Admin") {
+      adminSection.style.display = "block";
+    } else if (selectedRole === "Manager") {
+      managerSection.style.display = "block";
+    } else if (selectedRole === "Collaborateur") {
+      collaboratorSection.style.display = "block";
+    }
+  }
+
+  // Add event listener to the role switcher dropdown
+  roleSwitcher.addEventListener("change", updateRoleView);
+
+  // Initialize the view based on the default selected role
+  updateRoleView();
 });
