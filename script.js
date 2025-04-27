@@ -322,44 +322,72 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Simuler des données pour les analytics
-  const topSkills = [
-    "JavaScript",
-    "HTML/CSS",
-    "React",
-    "Node.js",
-    "Python",
-    "SQL",
-    "Java",
-    "C#",
-    "PHP",
-    "TypeScript",
-  ];
-  const scarceSkills = [
-    "Machine Learning",
-    "Data Science",
-    "DevOps",
-    "Cybersecurity",
-    "Cloud Computing",
-  ];
-  const upskillReskillData = { upskill: 5, reskill: 3 };
+  if (window.location.pathname.includes("analytics.html")) {
+    const topSkills = [
+      "JavaScript",
+      "HTML/CSS",
+      "React",
+      "Node.js",
+      "Python",
+      "SQL",
+      "Java",
+      "C#",
+      "PHP",
+      "TypeScript",
+    ];
+    const scarceSkills = [
+      "Machine Learning",
+      "Data Science",
+      "DevOps",
+      "Cybersecurity",
+      "Cloud Computing",
+    ];
+    const upskillReskillData = { upskill: 5, reskill: 3 };
 
-  // Ajouter les compétences maîtrisées
-  const topSkillsList = document.getElementById("top-skills");
-  topSkills.forEach((skill) => {
-    const li = document.createElement("li");
-    li.textContent = skill;
-    topSkillsList.appendChild(li);
-  });
+    // Ajouter les compétences maîtrisées
+    const topSkillsList = document.getElementById("top-skills");
+    topSkills.forEach((skill) => {
+      const li = document.createElement("li");
+      li.textContent = skill;
+      topSkillsList.appendChild(li);
+    });
 
-  // Ajouter les compétences pénuriques
-  const scarceSkillsList = document.getElementById("scarce-skills");
-  scarceSkills.forEach((skill) => {
-    const li = document.createElement("li");
-    li.textContent = skill;
-    scarceSkillsList.appendChild(li);
-  });
+    // Ajouter les compétences pénuriques
+    const scarceSkillsList = document.getElementById("scarce-skills");
+    scarceSkills.forEach((skill) => {
+      const li = document.createElement("li");
+      li.textContent = skill;
+      scarceSkillsList.appendChild(li);
+    });
 
-  // Ajouter les données d'Upskill et Reskill
-  const upskillReskillCount = document.getElementById("upskill-reskill-count");
-  upskillReskillCount.textContent = `Upskill: ${upskillReskillData.upskill}, Reskill: ${upskillReskillData.reskill}`;
+    // Ajouter les données d'Upskill et Reskill
+    const upskillReskillCount = document.getElementById("upskill-reskill-count");
+    upskillReskillCount.textContent = `Upskill: ${upskillReskillData.upskill}, Reskill: ${upskillReskillData.reskill}`;
+  }
+  // Add interactivity for AI chat page
+  if (window.location.pathname.includes("ai_interaction.html")) {
+    const chatForm = document.getElementById("chat-form");
+    const chatInput = document.getElementById("chat-input");
+    const chatMessages = document.getElementById("chat-messages");
+
+    chatForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const userMessage = chatInput.value.trim();
+      if (userMessage) {
+        const userBubble = document.createElement("div");
+        userBubble.className = "chat-bubble user";
+        userBubble.textContent = userMessage;
+        chatMessages.appendChild(userBubble);
+
+        const aiBubble = document.createElement("div");
+        aiBubble.className = "chat-bubble ai";
+        aiBubble.textContent =
+          "Merci pour votre question. Voici une suggestion pour votre parcours.";
+        chatMessages.appendChild(aiBubble);
+
+        chatInput.value = "";
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+    });
+  }
 });
