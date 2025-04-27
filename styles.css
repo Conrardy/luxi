@@ -537,6 +537,55 @@
             gap: 1rem;
         }
 
+        /* Styles spécifiques pour la page reports_analytics.html */
+        .dashboard-container {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .analytics-section {
+            margin-bottom: 2rem;
+        }
+
+        .analytics-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .analytics-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .analytics-section ul li {
+            background-color: var(--bg-light);
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .analytics-section ul li:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-light);
+            color: black;
+        }
+
+        #upskill-reskill-count {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            background-color: var(--bg-light);
+            padding: 1rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .dashboard-stats,
