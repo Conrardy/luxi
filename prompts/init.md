@@ -16,7 +16,7 @@ Fonctionnalités principales ajoutées :
 
 Navigation interactive - Les liens de navigation défilent en douceur vers les sections correspondantes
 Barre de recherche - Pour chercher des collaborateurs ou des compétences
-Matrice de compétences interactive - Les points de compétence sont cliquables
+Matrice de compétences interactive - Les points de compétence sont cliquables, avec export excel
 Création de parcours - Un bouton pour créer de nouveaux parcours qui ouvre une modale
 Formulaire de création de parcours - Interface pour ajouter de nouveaux parcours ReSkill/UpSkill
 Formulaire de création de collaborateur - Interface pour ajouter de nouveaux collaborateurs

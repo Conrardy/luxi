@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  if (window.location.pathname.includes("luxi_prototype.html")) {
   // Ajout du script pour exporter la matrice en Excel
     document
       .getElementById("export-excel-btn")
@@ -67,6 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.click();
         document.body.removeChild(link);
       });
+    }
   // Ajouter des fonctionnalités interactives pour la démonstration
   const skillDots = document.querySelectorAll(".skill-dot");
   skillDots.forEach((dot) => {

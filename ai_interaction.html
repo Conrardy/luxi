@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Conseiller</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .main-container {
+            display: flex;
+        }
+        .chat-container {
+            flex: 2;
+            padding-right: 20px;
+        }
+        .actions-history {
+            flex: 1;
+            border-left: 1px solid #ccc;
+            padding-left: 20px;
+        }
+        .actions-history h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .action-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,20 +46,67 @@
     </header>
 
     <main>
-        <section class="chat-container">
-            <h1>AI Conseiller</h1>
-            <div id="chat-messages" class="chat-messages">
-                <div class="chat-bubble ai">Bonjour ! Comment puis-je vous aider avec vos parcours ReSkills ou UpSkills ?</div>
-            </div>
-            <form id="chat-form" class="chat-form">
-                <input id="chat-input" class="chat-input" type="text" placeholder="Posez votre question...">
-                <button type="submit" class="chat-submit">Envoyer</button>
-            </form>
-        </section>
+        <div class="main-container">
+            <section class="chat-container">
+                <h1>AI Conseiller</h1>
+                <div id="chat-messages" class="chat-messages">
+                    <div class="chat-bubble ai">Bonjour ! Comment puis-je vous aider avec vos parcours ReSkills ou UpSkills ?</div>
+                </div>
+                <form id="chat-form" class="chat-form">
+                    <input id="chat-input" class="chat-input" type="text" placeholder="Posez votre question...">
+                    <button type="submit" class="chat-submit">Envoyer</button>
+                </form>
+            </section>
+            <aside class="actions-history">
+                <h2>Historique des actions</h2>
+                <div id="actions-list">
+                    <div class="action-item">Ajout de la compétence "Gestion de projet".</div>
+                    <div class="action-item">Liste des collaborateurs avec "Communication > 3" récupérée.</div>
+                    <div class="action-item">Mise à jour du niveau de compétence "Leadership" pour Jean Dupont.</div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <footer>
-        <p>© 2025 Luxi - Gestion intelligente des compétences</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="logo">
+                    <span class="logo-icon">✦</span> Luxi
+                </div>
+                <p>La solution intelligente pour gérer les compétences et parcours de vos équipes.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#">Tableau de bord</a></li>
+                    <li><a href="#matrix">Matrice de compétences</a></li>
+                    <li><a href="#pathways">Parcours</a></li>
+                    <li><a href="#teams">Équipes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Fonctionnalités</h4>
+                <ul>
+                    <li><a href="#matrix">Matrice de compétences</a></li>
+                    <li><a href="#reskill">Parcours ReSkills</a></li>
+                    <li><a href="#upskill">Parcours UpSkills</a></li>
+                    <li><a href="#">Rapports et analyses</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Ressources</h4>
+                <ul>
+                    <li><a href="#">Guide d'utilisation</a></li>
+                    <li><a href="#">Tutoriels</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Luxi - Gestion intelligente des compétences</p>
+        </div>
     </footer>
 
     <script src="script.js" defer></script>
