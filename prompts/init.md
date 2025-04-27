@@ -19,6 +19,7 @@ Barre de recherche - Pour chercher des collaborateurs ou des compétences
 Matrice de compétences interactive - Les points de compétence sont cliquables
 Création de parcours - Un bouton pour créer de nouveaux parcours qui ouvre une modale
 Formulaire de création de parcours - Interface pour ajouter de nouveaux parcours ReSkill/UpSkill
+Formulaire de création de collaborateur - Interface pour ajouter de nouveaux collaborateurs
 Pied de page complet - Navigation et liens utiles
 Nouvelle section "Rapports & Analytics" - Pour le suivi des performances
 
