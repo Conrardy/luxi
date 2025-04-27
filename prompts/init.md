@@ -22,5 +22,6 @@ Formulaire de création de parcours - Interface pour ajouter de nouveaux parcour
 Formulaire de création de collaborateur - Interface pour ajouter de nouveaux collaborateurs
 Pied de page complet - Navigation et liens utiles
 Nouvelle section "Rapports & Analytics" - Pour le suivi des performances
+Nouvelle section "AI conseiller" - Pour interagir avec un conseiller virtuel AI
 
 ```

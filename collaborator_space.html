@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Collaborateur</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">✦</span> Luxi
+            </div>
+            <div class="nav-links">
+                <a href="luxi_prototype.html">Tableau de bord</a>
+                <a href="reports_analytics.html">Analytics</a>
+                <a href="ai_interaction.html">AI Conseiller</a>
+                <a href="collaborator_space.html" class="active">Espace Collaborateur</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h1>Espace Collaborateur</h1>
+            <p>Justifiez vos compétences et faites des demandes de parcours ReSkills ou UpSkills.</p>
+        </section>
+
+        <section class="skill-justification">
+            <h2>Justification des compétences</h2>
+            <form id="justification-form">
+                <div class="form-group">
+                    <label for="skill">Compétence</label>
+                    <select id="skill" class="form-control">
+                        <option value="">Sélectionnez une compétence</option>
+                        <option>JavaScript</option>
+                        <option>HTML/CSS</option>
+                        <option>React</option>
+                        <option>Gestion de projet</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="justification">Justification</label>
+                    <textarea id="justification" class="form-control" placeholder="Expliquez pourquoi vous méritez ce niveau"></textarea>
+                </div>
+                <button type="submit" class="btn">Soumettre</button>
+            </form>
+        </section>
+
+        <section class="pathway-requests">
+            <h2>Demandes de parcours</h2>
+            <form id="pathway-request-form">
+                <div class="form-group">
+                    <label for="pathway-type">Type de parcours</label>
+                    <select id="pathway-type" class="form-control">
+                        <option value="">Sélectionnez un type</option>
+                        <option>ReSkill</option>
+                        <option>UpSkill</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="target-position">Poste cible</label>
+                    <input type="text" id="target-position" class="form-control" placeholder="Poste visé">
+                </div>
+                <div class="form-group">
+                    <label>Compétences à développer</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="JavaScript"> JavaScript</label>
+                        <label><input type="checkbox" value="HTML/CSS"> HTML/CSS</label>
+                        <label><input type="checkbox" value="React"> React</label>
+                        <label><input type="checkbox" value="Gestion de projet"> Gestion de projet</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Faire une demande</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Luxi - Gestion intelligente des compétences</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
