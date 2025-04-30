@@ -404,6 +404,49 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Ajouter une ligne pour un nouveau collaborateur
+  document.getElementById("add-collaborator-row-btn").addEventListener("click", function () {
+    const tableBody = document.querySelector(".skill-matrix table tbody");
+    const newRow = document.createElement("tr");
+
+    // Exemple de données pour un nouveau collaborateur
+    const collaboratorName = "Nouveau Collaborateur";
+    const collaboratorRole = "Rôle";
+
+    // Ajouter la cellule pour le collaborateur
+    const collaboratorCell = document.createElement("td");
+    collaboratorCell.innerHTML = `
+        <div class="employee-profile">
+            <div class="profile-avatar">NC</div>
+            <div>
+                <div>${collaboratorName}</div>
+                <small>${collaboratorRole}</small>
+            </div>
+        </div>
+    `;
+    newRow.appendChild(collaboratorCell);
+
+    // Ajouter des cellules vides pour chaque compétence existante
+    const skillColumns = document.querySelectorAll(".skill-matrix table thead th").length - 1; // Exclure la colonne Collaborateur
+    for (let i = 0; i < skillColumns; i++) {
+        const skillCell = document.createElement("td");
+        skillCell.innerHTML = `
+            <div class="skill-level">
+                <div class="skill-indicator">
+                    <div class="skill-dot"></div>
+                    <div class="skill-dot"></div>
+                    <div class="skill-dot"></div>
+                    <div class="skill-dot"></div>
+                </div>
+                <span>0</span>
+            </div>
+        `;
+        newRow.appendChild(skillCell);
+    }
+
+    tableBody.appendChild(newRow);
+  });
+
   // Simuler des données pour les analytics
   if (window.location.pathname.includes("analytics.html")) {
     const topSkills = [
