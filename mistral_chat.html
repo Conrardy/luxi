@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation d'entretien - Mistral</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">✦</span> Luxi
+            </div>
+            <div class="nav-links">
+                <a href="luxi_prototype.html">Accueil</a>
+                <a href="mistral_chat.html" class="active">Simulation d'entretien</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="chat-container">
+            <h1>Simulation d'entretien d'embauche</h1>
+            <form id="interview-context-form">
+                <div class="form-group">
+                    <label for="candidate-context">Contexte Candidat/Employé :</label>
+                    <textarea id="candidate-context" maxlength="500" placeholder="Entrez le contexte du candidat..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="manager-context">Contexte Manager/RH :</label>
+                    <textarea id="manager-context" maxlength="500" placeholder="Entrez le contexte du manager..."></textarea>
+                </div>
+                <button type="button" id="start-interview-btn" class="btn">Commencer l'entretien</button>
+            </form>
+
+            <div id="chat-messages" class="chat-messages"></div>
+
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="chat-input" class="chat-input" placeholder="Écrivez un message...">
+                <button type="submit" class="chat-submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Luxi - Simulation d'entretien</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

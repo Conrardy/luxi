@@ -740,3 +740,63 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Styles for the Mistral interview simulation page */
+        .chat-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
+
+        .chat-messages {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background-color: var(--bg-light);
+        }
+
+        .chat-bubble {
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            max-width: 80%;
+        }
+
+        .chat-bubble.user {
+            background-color: var(--primary);
+            color: white;
+            align-self: flex-end;
+        }
+
+        .chat-bubble.ai {
+            background-color: var(--bg-light);
+            color: var(--text);
+            align-self: flex-start;
+        }
+
+        .chat-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .chat-submit {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }

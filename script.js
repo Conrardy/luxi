@@ -405,17 +405,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Ajouter une ligne pour un nouveau collaborateur
-  document.getElementById("add-collaborator-row-btn").addEventListener("click", function () {
-    const tableBody = document.querySelector(".skill-matrix table tbody");
-    const newRow = document.createElement("tr");
+  const addCollabBtn = document.getElementById("add-collaborator-row-btn");
+  if (addCollabBtn) {
+    document
+      .getElementById("add-collaborator-row-btn")
+      .addEventListener("click", function () {
+        const tableBody = document.querySelector(".skill-matrix table tbody");
+        const newRow = document.createElement("tr");
 
-    // Exemple de données pour un nouveau collaborateur
-    const collaboratorName = "Nouveau Collaborateur";
-    const collaboratorRole = "Rôle";
+        // Exemple de données pour un nouveau collaborateur
+        const collaboratorName = "Nouveau Collaborateur";
+        const collaboratorRole = "Rôle";
 
-    // Ajouter la cellule pour le collaborateur
-    const collaboratorCell = document.createElement("td");
-    collaboratorCell.innerHTML = `
+        // Ajouter la cellule pour le collaborateur
+        const collaboratorCell = document.createElement("td");
+        collaboratorCell.innerHTML = `
         <div class="employee-profile">
             <div class="profile-avatar">NC</div>
             <div>
@@ -424,13 +428,14 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         </div>
     `;
-    newRow.appendChild(collaboratorCell);
+        newRow.appendChild(collaboratorCell);
 
-    // Ajouter des cellules vides pour chaque compétence existante
-    const skillColumns = document.querySelectorAll(".skill-matrix table thead th").length - 1; // Exclure la colonne Collaborateur
-    for (let i = 0; i < skillColumns; i++) {
-        const skillCell = document.createElement("td");
-        skillCell.innerHTML = `
+        // Ajouter des cellules vides pour chaque compétence existante
+        const skillColumns =
+          document.querySelectorAll(".skill-matrix table thead th").length - 1; // Exclure la colonne Collaborateur
+        for (let i = 0; i < skillColumns; i++) {
+          const skillCell = document.createElement("td");
+          skillCell.innerHTML = `
             <div class="skill-level">
                 <div class="skill-indicator">
                     <div class="skill-dot"></div>
@@ -441,12 +446,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 <span>0</span>
             </div>
         `;
-        newRow.appendChild(skillCell);
-    }
+          newRow.appendChild(skillCell);
+        }
 
-    tableBody.appendChild(newRow);
-  });
-
+        tableBody.appendChild(newRow);
+      });
+  }
   // Simuler des données pour les analytics
   if (window.location.pathname.includes("analytics.html")) {
     const topSkills = [
@@ -521,31 +526,125 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add interactivity for role switcher
   const roleSwitcher = document.getElementById("role-select");
-  const adminSection = document.querySelector(".admin-only");
-  const managerSection = document.querySelector(".manager-only");
-  const collaboratorSection = document.querySelector(".collaborator-only");
+  if (roleSwitcher) {
+    const adminSection = document.querySelector(".admin-only");
+    const managerSection = document.querySelector(".manager-only");
+    const collaboratorSection = document.querySelector(".collaborator-only");
 
-  function updateRoleView() {
-    const selectedRole = roleSwitcher.value;
+    function updateRoleView() {
+      const selectedRole = roleSwitcher.value;
 
-    // Hide all sections by default
-    adminSection.style.display = "none";
-    managerSection.style.display = "none";
-    collaboratorSection.style.display = "none";
+      // Hide all sections by default
+      adminSection.style.display = "none";
+      managerSection.style.display = "none";
+      collaboratorSection.style.display = "none";
 
-    // Show the section corresponding to the selected role
-    if (selectedRole === "Admin") {
-      adminSection.style.display = "block";
-    } else if (selectedRole === "Manager") {
-      managerSection.style.display = "block";
-    } else if (selectedRole === "Collaborateur") {
-      collaboratorSection.style.display = "block";
+      // Show the section corresponding to the selected role
+      if (selectedRole === "Admin") {
+        adminSection.style.display = "block";
+      } else if (selectedRole === "Manager") {
+        managerSection.style.display = "block";
+      } else if (selectedRole === "Collaborateur") {
+        collaboratorSection.style.display = "block";
+      }
     }
+
+    // Add event listener to the role switcher dropdown
+    roleSwitcher.addEventListener("change", updateRoleView);
+
+    // Initialize the view based on the default selected role
+    updateRoleView();
   }
 
-  // Add event listener to the role switcher dropdown
-  roleSwitcher.addEventListener("change", updateRoleView);
+  // Add interactivity for the Mistral interview simulation page
+  if (window.location.pathname.includes("mistral_chat.html")) {
+    const startInterviewBtn = document.getElementById("start-interview-btn");
+    const candidateContext = document.getElementById("candidate-context");
+    const managerContext = document.getElementById("manager-context");
+    const chatMessages = document.getElementById("chat-messages");
+    const chatForm = document.getElementById("chat-form");
+    const chatInput = document.getElementById("chat-input");
 
-  // Initialize the view based on the default selected role
-  updateRoleView();
+    const mistralAgenId = "ag:a1ce995b:20250430:untitled-agent:081d9a57";
+    const mistralApiKey = 'orytVKaVGpcmLne9wiNNmbnPSgGmOrx3';
+    async function sendToMistral(messages) {
+      try {
+        const response = await fetch(
+          "https://api.mistral.ai/v1/agents/completions",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${mistralApiKey}`,
+            },
+            body: JSON.stringify({
+              agent_id: mistralAgenId,
+              messages: messages,
+            }),
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.choices[0].message.content;
+      } catch (error) {
+        console.error("Error communicating with Mistral API:", error);
+        return "Une erreur s'est produite lors de la communication avec l'API Mistral.";
+      }
+    }
+
+    startInterviewBtn.addEventListener("click", async () => {
+      const candidateText = candidateContext.value.trim();
+      const managerText = managerContext.value.trim();
+
+      if (!candidateText || !managerText) {
+        alert(
+          "Veuillez remplir les deux contextes avant de commencer l'entretien."
+        );
+        return;
+      }
+
+      const initialMessage = [
+        {
+          role: "user",
+          content: `Contexte Candidat/Employé: ${candidateText}\nContexte Manager/RH: ${managerText}`,
+        },
+      ];
+
+      const agentResponse = await sendToMistral(initialMessage);
+
+      const aiBubble = document.createElement("div");
+      aiBubble.className = "chat-bubble ai";
+      aiBubble.textContent = agentResponse;
+      chatMessages.appendChild(aiBubble);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
+
+    chatForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const userMessage = chatInput.value.trim();
+      if (!userMessage) return;
+
+      const userBubble = document.createElement("div");
+      userBubble.className = "chat-bubble user";
+      userBubble.textContent = userMessage;
+      chatMessages.appendChild(userBubble);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      chatInput.value = "";
+
+      const agentResponse = await sendToMistral([
+        { role: "user", content: userMessage },
+      ]);
+
+      const aiBubble = document.createElement("div");
+      aiBubble.className = "chat-bubble ai";
+      aiBubble.textContent = agentResponse;
+      chatMessages.appendChild(aiBubble);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
+  }
 });
