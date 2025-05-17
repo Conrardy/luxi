@@ -559,14 +559,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add interactivity for the Mistral interview simulation page
   if (window.location.pathname.includes("mistral_chat.html")) {
     const startInterviewBtn = document.getElementById("start-interview-btn");
+    const newConversationBtn = document.getElementById("new-conversation-btn");
     const candidateContext = document.getElementById("candidate-context");
     const managerContext = document.getElementById("manager-context");
     const chatMessages = document.getElementById("chat-messages");
     const chatForm = document.getElementById("chat-form");
     const chatInput = document.getElementById("chat-input");
+    const conversationHistoryInput = document.getElementById(
+      "conversation-history"
+    );
+
+    let conversationHistory = [];
 
     const mistralAgenId = "ag:a1ce995b:20250430:untitled-agent:081d9a57";
-    const mistralApiKey = 'orytVKaVGpcmLne9wiNNmbnPSgGmOrx3';
+    const mistralApiKey = "orytVKaVGpcmLne9wiNNmbnPSgGmOrx3";
     async function sendToMistral(messages) {
       try {
         const response = await fetch(
@@ -596,6 +602,19 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
+    function resetConversation() {
+      conversationHistory = [];
+      conversationHistoryInput.value = JSON.stringify(conversationHistory);
+      chatMessages.innerHTML = "";
+      candidateContext.value = "";
+      managerContext.value = "";
+      chatInput.value = "";
+    }
+
+    newConversationBtn.addEventListener("click", () => {
+      resetConversation();
+    });
+
     startInterviewBtn.addEventListener("click", async () => {
       const candidateText = candidateContext.value.trim();
       const managerText = managerContext.value.trim();
@@ -607,20 +626,26 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      const initialMessage = [
+      // Add initial context as system message
+      conversationHistory = [
         {
           role: "user",
           content: `Contexte Candidat/Employé: ${candidateText}\nContexte Manager/RH: ${managerText}`,
         },
       ];
+      conversationHistoryInput.value = JSON.stringify(conversationHistory);
 
-      const agentResponse = await sendToMistral(initialMessage);
+      const agentResponse = await sendToMistral(conversationHistory);
 
       const aiBubble = document.createElement("div");
       aiBubble.className = "chat-bubble ai";
       aiBubble.textContent = agentResponse;
       chatMessages.appendChild(aiBubble);
       chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Add AI response to conversation history
+      conversationHistory.push({ role: "assistant", content: agentResponse });
+      conversationHistoryInput.value = JSON.stringify(conversationHistory);
     });
 
     chatForm.addEventListener("submit", async (e) => {
@@ -634,17 +659,24 @@ document.addEventListener("DOMContentLoaded", function () {
       chatMessages.appendChild(userBubble);
       chatMessages.scrollTop = chatMessages.scrollHeight;
 
+      // Add user message to conversation history
+      conversationHistory.push({ role: "user", content: userMessage });
+      conversationHistoryInput.value = JSON.stringify(conversationHistory);
+
       chatInput.value = "";
 
-      const agentResponse = await sendToMistral([
-        { role: "user", content: userMessage },
-      ]);
+      // Send full conversation history for context
+      const agentResponse = await sendToMistral(conversationHistory);
 
       const aiBubble = document.createElement("div");
       aiBubble.className = "chat-bubble ai";
       aiBubble.textContent = agentResponse;
       chatMessages.appendChild(aiBubble);
       chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Add AI response to conversation history
+      conversationHistory.push({ role: "assistant", content: agentResponse });
+      conversationHistoryInput.value = JSON.stringify(conversationHistory);
     });
   }
 });

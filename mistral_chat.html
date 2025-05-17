@@ -32,9 +32,12 @@
                     <textarea id="manager-context" maxlength="500" placeholder="Entrez le contexte du manager..."></textarea>
                 </div>
                 <button type="button" id="start-interview-btn" class="btn">Commencer l'entretien</button>
+                <button type="button" id="new-conversation-btn" class="btn btn-outline" style="margin-left:10px;">Nouvelle conversation</button>
             </form>
 
             <div id="chat-messages" class="chat-messages"></div>
+            <!-- Hidden input to store conversation history as JSON -->
+            <input type="hidden" id="conversation-history" value="[]">
 
             <form id="chat-form" class="chat-form">
                 <input type="text" id="chat-input" class="chat-input" placeholder="Écrivez un message...">
